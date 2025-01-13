@@ -13,7 +13,7 @@ const Dashboard = () => {
         const checkEvaluationStatus = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get('http://localhost:3000/api/prompts/status', {
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/prompts/status`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
             } catch (error) {
@@ -30,7 +30,7 @@ const Dashboard = () => {
         const fetchPrompts = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get('http://localhost:3000/api/prompts', {
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/prompts`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setPrompts(response.data);

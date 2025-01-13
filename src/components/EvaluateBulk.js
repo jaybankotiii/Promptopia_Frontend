@@ -30,7 +30,7 @@ const EvaluateBulk = () => {
             const token = localStorage.getItem('token');
 
             // Send file to backend
-            await axios.post('http://localhost:3000/api/prompts/evaluate-bulk', formData, {
+            await axios.post(`${process.env.REACT_APP_API_URL}/prompts/evaluate-bulk`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${token}`,

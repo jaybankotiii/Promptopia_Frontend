@@ -15,7 +15,7 @@ const Evaluating = () => {
                 const token = localStorage.getItem('token');
 
                 // Check evaluation status
-                const statusResponse = await axios.get('http://localhost:3000/api/prompts/status', {
+                const statusResponse = await axios.get(`${process.env.REACT_APP_API_URL}/prompts/status`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 console.log(statusResponse.data);
@@ -25,7 +25,7 @@ const Evaluating = () => {
                     setStatusMessage('🎉 Your evaluation is complete!');
 
                     // Fetch evaluation results
-                    const resultsResponse = await axios.get('http://localhost:3000/api/prompts/results', {
+                    const resultsResponse = await axios.get(`${process.env.REACT_APP_API_URL}/prompts/results`, {
                         headers: { Authorization: `Bearer ${token}` }
                     });
 

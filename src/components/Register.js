@@ -12,7 +12,7 @@ const Register = () => {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/api/auth/register', form);
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/register`, form);
             setMessage({ type: 'success', text: response.data.message }); // Show success message
             navigate('/dashboard'); // Redirect to dashboard
         } catch (err) {

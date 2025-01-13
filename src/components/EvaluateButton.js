@@ -21,7 +21,7 @@ const EvaluateButton = ({ prompts }) => {
             console.log("Sending data to evaluate:", formattedPrompts);
 
             const response = await axios.post(
-                'http://localhost:3000/api/prompts/evaluate',
+                `${process.env.REACT_APP_API_URL}/prompts/evaluate`,
                 { prompts: formattedPrompts },
                 {
                     headers: {

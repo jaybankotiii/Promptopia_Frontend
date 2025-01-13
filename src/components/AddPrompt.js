@@ -16,7 +16,7 @@ const AddPrompt = ({ onAdd }) => {
             }
 
             const response = await axios.post(
-                'http://localhost:3000/api/prompts',
+                `${process.env.REACT_APP_API_URL}/prompts`,
                 {
                     prompt: newPrompt,
                     goldenModel: selectedModel,

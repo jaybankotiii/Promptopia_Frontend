@@ -8,7 +8,7 @@ const PromptItem = ({ promptData, onDelete }) => {
     const handleDelete = async () => {
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:3000/api/prompts/${promptData._id}`, {
+            await axios.delete(`${process.env.REACT_APP_API_URL}/prompts/${promptData._id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             onDelete(promptData._id);

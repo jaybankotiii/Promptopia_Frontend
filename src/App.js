@@ -22,7 +22,7 @@ function App() {
             const token = localStorage.getItem('token');
             if (token) {
                 try {
-                    const response = await axios.get('http://localhost:3000/api/prompts/status', {
+                    const response = await axios.get(`${process.env.REACT_APP_API_URL}/prompts/status`, {
                         headers: { Authorization: `Bearer ${token}` }
                     });
                     setIsEvaluated(response.data.isEvaluated);
